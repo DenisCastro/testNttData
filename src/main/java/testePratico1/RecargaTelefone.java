@@ -37,7 +37,7 @@ public class RecargaTelefone  {
                 telefone.setSaldoTelefone(telefone.getSaldoTelefone() + conta.getRecarga());
                 System.out.println("saldo telefone depois da recarga: " + telefone.getSaldoTelefone());
                 System.out.println("====FIM FLUXO RECARGA====");
-                throw new NullPointerException();
+                //throw new NullPointerException();
             } catch (Exception e){
                 System.out.println("====INICIO FLUXO EXCEÇÃO NÃO TRATADA====");
                 System.out.println("Saldo conta antes da falha da recarga: " + conta.getSaldo());
