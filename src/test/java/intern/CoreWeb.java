@@ -179,6 +179,19 @@ public class CoreWeb {
         return resultado;
     }
 
+    protected String getAttribute(String elements, String attribute) {
+        tempoMaximoEspera = tempoMaximoEsperaBackUp;
+        while (!existe(elements) && tempoMaximoEspera >= 0) {
+            long tempoInicial = Calendar.getInstance().getTimeInMillis();
+            esperar(500);
+            long tempoFinal = Calendar.getInstance().getTimeInMillis();
+            long tempoGasto = (tempoFinal - tempoInicial);
+            tempoMaximoEspera = Math.toIntExact((tempoMaximoEspera - tempoGasto));
+        }
+        resultado = driver.findElement(By.xpath(elements)).getAttribute(attribute);
+        return resultado;
+    }
+
 
     protected String getText(String elements) {
         tempoMaximoEspera = tempoMaximoEsperaBackUp;
