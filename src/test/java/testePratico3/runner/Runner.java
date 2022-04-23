@@ -9,7 +9,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/testePratico3/features/"
         ,glue = {"testePratico3"}
         ,plugin = {"intern.Plugin"}
-        , tags = {"@Cenario2"}
+        //, tags = {"@Cenario1, @Cenario2, @Cenario3"}
+        , tags = {"@Cenario3"}
 )
 public class Runner {
 }

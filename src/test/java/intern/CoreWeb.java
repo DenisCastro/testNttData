@@ -15,6 +15,8 @@ import static intern.Plugin.pathCenario;
 public class CoreWeb {
 
     //protected static final String pathEvidencias = "src/test/resources/relatorio/evidencias/" + pathCenario + "/";
+
+    protected DBConfig dbConfig = new DBConfig();
     protected static long tempoMaximoEsperaBackUp = 30000;
     protected static long tempoMaximoEspera = 30000;
     protected static Throwable throwable = null;
@@ -217,20 +219,29 @@ public class CoreWeb {
 
     protected boolean assertEquals(String arg0, String arg1) {
         if (arg0.equals(arg1)) {
-            //print(driver);
             String logTextosIguais = "O texto " + arg0 + " era igual ao texto " + arg1;
             System.out.println(logAzul(logTextosIguais));
             return true;
-            //Relatorio.relatorioHTML(logTextosIguais, pathEvidencias + idEvidencia);
         } else {
             String logTextosDiferentes = "O texto " + arg0 + " não era igual ao texto " + arg1;
             System.out.println(logVermelho(logTextosDiferentes));
             throwable = new AssertionError(logTextosDiferentes);
-            //print(driver);
-            //Relatorio.relatorioHTML(logVerde(logTextosDiferentes), pathEvidencias + idEvidencia);
+            throw new AssertionError();
+        }
+    }
+
+    protected boolean assertEquals(float arg0, float arg1) {
+        if (arg0 == arg1 ) {
+            String logTextosIguais = "O valor " + arg0 + " era igual ao valor " + arg1;
+            System.out.println(logAzul(logTextosIguais));
+            return true;
+        } else {
+            String logTextosDiferentes = "O valor " + arg0 + " não era igual ao valor " + arg1;
+            System.out.println(logVermelho(logTextosDiferentes));
+            throwable = new AssertionError(logTextosDiferentes);
+            throw new AssertionError();
 
         }
-        return arg0.equals(arg1);
     }
 
     protected boolean validarTextoDentroDeTexto(String arg0, String arg1) {
