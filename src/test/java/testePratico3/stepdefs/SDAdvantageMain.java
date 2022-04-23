@@ -68,4 +68,10 @@ public class SDAdvantageMain extends CoreWeb {
         click(ADVANTAGE_MAIN_BUTTON_CART);
         click(ADVANTAGE_MAIN_BUTTON_CHECKOUT);
     }
+
+    @When("O usuário acessa o carrinho de compras")
+    public void oUsuárioAcessaOCarrinhoDeCompras() {
+        setLogMap(ADVANTAGE_MAIN);
+        click(ADVANTAGE_MAIN_BUTTON_CART);
+    }
 }

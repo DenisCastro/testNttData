@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         ,glue = {"testePratico3"}
         ,plugin = {"intern.Plugin"}
         //, tags = {"@Cenario1, @Cenario2, @Cenario3"}
-        , tags = {"@Cenario3"}
+        , tags = {"@TestePratico3"}
 )
 public class Runner {
 }
