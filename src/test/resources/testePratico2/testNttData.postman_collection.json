@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "fae57d0a-29f4-436c-aa79-41524b23a794",
+		"name": "testNttData",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Teste Pratico 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Campo bairro não vazio\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    pm.expect(jsonObject [\"soap:Envelope\"] [\"soap:Body\"] [\"ns2:consultaCEPResponse\"] [\"return\"] [\"bairro\"]).not.empty\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Campo cep não vazio\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    pm.expect(jsonObject [\"soap:Envelope\"] [\"soap:Body\"] [\"ns2:consultaCEPResponse\"] [\"return\"] [\"cep\"]).not.empty\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Campo cidade não vazio\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    pm.expect(jsonObject [\"soap:Envelope\"] [\"soap:Body\"] [\"ns2:consultaCEPResponse\"] [\"return\"] [\"cidade\"]).not.empty\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Campo complemento2 não vazio\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    pm.expect(jsonObject [\"soap:Envelope\"] [\"soap:Body\"] [\"ns2:consultaCEPResponse\"] [\"return\"] [\"complemento2\"]).empty\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Campo end não vazio\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    pm.expect(jsonObject [\"soap:Envelope\"] [\"soap:Body\"] [\"ns2:consultaCEPResponse\"] [\"return\"] [\"end\"]).not.empty\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Campo uf não vazio\", function () {\r",
+							"    var jsonObject = xml2Json(responseBody);\r",
+							"    pm.expect(jsonObject [\"soap:Envelope\"] [\"soap:Body\"] [\"ns2:consultaCEPResponse\"] [\"return\"] [\"uf\"]).not.empty\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <Body>\r\n        <consultaCEP xmlns=\"http://cliente.bean.master.sigep.bsb.correios.com.br/\">\r\n            <cep xmlns=\"\">{{cep}}</cep>\r\n        </consultaCEP>\r\n    </Body>\r\n</Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente",
+					"protocol": "https",
+					"host": [
+						"apps",
+						"correios",
+						"com",
+						"br"
+					],
+					"path": [
+						"SigepMasterJPA",
+						"AtendeClienteService",
+						"AtendeCliente"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
