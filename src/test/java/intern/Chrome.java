@@ -16,11 +16,4 @@ public class Chrome {
         //options.addArguments("--headless");
         driver = new ChromeDriver(options);
     }
-
-    /*public static String pegarUrl() {
-        return driver.getCurrentUrl();
-    }
-    public void navegar(String url) {
-        driver.navigate().to(url);
-    }*/
 }

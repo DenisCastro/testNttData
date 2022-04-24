@@ -36,5 +36,3 @@ Feature: Teste Pratico 3
     And O usuário acessa o carrinho de compras
     When O usuario remove o produto do carrinho de compras
     Then O usuario valida que o carrinho de compras esta vazio
-
-
